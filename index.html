@@ -14,12 +14,103 @@
         </header>
         
         <main>
-            <div class="welcome-card">
+            <!-- 欢迎页面 -->
+            <div class="welcome-card" id="welcomePage">
                 <h2>欢迎使用</h2>
                 <p>这里将成为你的专属理财助手，帮助你记录和分析日常收支情况。</p>
-                <button class="primary-btn">开始记账</button>
+                <button class="primary-btn" id="startBtn">开始记账</button>
+            </div>
+
+            <!-- 主界面 -->
+            <div class="main-app" id="mainApp" style="display: none;">
+                <!-- Tab导航 -->
+                <div class="tab-nav">
+                    <button class="tab-btn active" data-tab="analysis">总持仓分析</button>
+                    <button class="tab-btn" data-tab="positions">持仓列表</button>
+                </div>
+
+                <!-- Tab内容区域 -->
+                <div class="tab-content">
+                    <!-- 总持仓分析 -->
+                    <div class="tab-panel active" id="analysisPanel">
+                        <div class="empty-state">
+                            <p>📊 持仓分析功能即将上线</p>
+                            <p class="sub-text">敬请期待...</p>
+                        </div>
+                    </div>
+
+                    <!-- 持仓列表 -->
+                    <div class="tab-panel" id="positionsPanel">
+                        <div class="positions-header">
+                            <h3>我的持仓</h3>
+                            <button class="add-btn" id="addPositionBtn">+ 新增</button>
+                        </div>
+                        <div class="positions-list" id="positionsList">
+                            <div class="empty-positions">
+                                <p>📈 暂无持仓记录</p>
+                                <p class="sub-text">点击上方"新增"按钮开始添加</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
+
+        <!-- 新增持仓弹窗 -->
+        <div class="modal" id="addModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>新增持仓项目</h3>
+                    <button class="close-btn" id="closeAddModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <label for="positionName">项目名称:</label>
+                    <input type="text" id="positionName" placeholder="例如：恒生科技">
+                </div>
+                <div class="modal-footer">
+                    <button class="cancel-btn" id="cancelAdd">取消</button>
+                    <button class="confirm-btn" id="confirmAdd">确认</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 加仓/减仓弹窗 -->
+        <div class="modal" id="tradeModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="tradeModalTitle">加仓</h3>
+                    <button class="close-btn" id="closeTradeModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <label for="tradeDate">时间:</label>
+                    <input type="date" id="tradeDate">
+                    
+                    <label for="tradeShares">股数:</label>
+                    <input type="number" id="tradeShares" placeholder="100">
+                    
+                    <label for="tradePrice">单价:</label>
+                    <input type="number" step="0.01" id="tradePrice" placeholder="10.50">
+                    
+                    <label for="tradeFee">手续费:</label>
+                    <input type="number" step="0.01" id="tradeFee" value="5">
+                </div>
+                <div class="modal-footer">
+                    <button class="cancel-btn" id="cancelTrade">取消</button>
+                    <button class="confirm-btn" id="confirmTrade">确认</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 详情页面 -->
+        <div class="detail-page" id="detailPage" style="display: none;">
+            <div class="detail-header">
+                <button class="back-btn" id="backBtn">← 返回</button>
+                <h3 id="detailTitle">详情</h3>
+            </div>
+            <div class="detail-content" id="detailContent">
+                <!-- 详情内容将在这里动态生成 -->
+            </div>
+        </div>
         
         <footer>
             <p>&copy; 2026 KKCC的理财本</p>

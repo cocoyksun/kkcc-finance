@@ -152,4 +152,442 @@ footer {
         width: 100%;
         padding: 15px;
     }
+    
+    .tab-nav {
+        flex-direction: column;
+    }
+    
+    .tab-btn {
+        margin: 5px 0;
+    }
+    
+    .positions-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+    
+    .position-item {
+        padding: 15px;
+    }
+    
+    .position-actions {
+        gap: 8px;
+    }
+    
+    .action-btn {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+/* 主应用界面样式 */
+.main-app {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* Tab导航样式 */
+.tab-nav {
+    display: flex;
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    color: #667eea;
+    background: white;
+    border-bottom: 3px solid #667eea;
+}
+
+.tab-btn:hover {
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.1);
+}
+
+/* Tab内容样式 */
+.tab-content {
+    min-height: 400px;
+}
+
+.tab-panel {
+    display: none;
+    padding: 20px;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* 空状态样式 */
+.empty-state, .empty-positions {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6c757d;
+}
+
+.empty-state p, .empty-positions p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.sub-text {
+    font-size: 14px !important;
+    opacity: 0.7;
+}
+
+/* 持仓列表样式 */
+.positions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.positions-header h3 {
+    color: #333;
+    font-size: 20px;
+    margin: 0;
+}
+
+.add-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+.positions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.position-item {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.position-item:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.position-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.position-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+}
+
+.position-amount {
+    font-size: 20px;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.position-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.action-btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.add-stock-btn {
+    background: #28a745;
+    color: white;
+}
+
+.add-stock-btn:hover {
+    background: #218838;
+}
+
+.remove-stock-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.remove-stock-btn:hover {
+    background: #c82333;
+}
+
+.detail-btn {
+    background: #667eea;
+    color: white;
+}
+
+.detail-btn:hover {
+    background: #5a67d8;
+}
+
+/* 弹窗样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: #333;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    color: #dc3545;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-body label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.modal-body input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.modal-body input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    border-top: 1px solid #e9ecef;
+    justify-content: flex-end;
+}
+
+.cancel-btn {
+    padding: 12px 24px;
+    border: 2px solid #6c757d;
+    background: transparent;
+    color: #6c757d;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background: #6c757d;
+    color: white;
+}
+
+.confirm-btn {
+    padding: 12px 24px;
+    border: none;
+    background: #667eea;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.confirm-btn:hover {
+    background: #5a67d8;
+}
+
+/* 详情页面样式 */
+.detail-page {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.detail-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.back-btn {
+    background: none;
+    border: 2px solid #667eea;
+    color: #667eea;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+.detail-content {
+    padding: 20px;
+}
+
+.trade-record {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid;
+}
+
+.trade-record.buy {
+    border-left-color: #28a745;
+}
+
+.trade-record.sell {
+    border-left-color: #dc3545;
+}
+
+.trade-record-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.trade-type {
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: white;
+}
+
+.trade-type.buy {
+    background: #28a745;
+}
+
+.trade-type.sell {
+    background: #dc3545;
+}
+
+.trade-date {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.trade-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    font-size: 14px;
+}
+
+.trade-detail-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.trade-detail-label {
+    color: #6c757d;
+}
+
+.trade-detail-value {
+    font-weight: 600;
+    color: #333;
 }
