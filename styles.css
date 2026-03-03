@@ -192,34 +192,48 @@ footer {
     overflow: hidden;
 }
 
-/* Tab导航样式 */
-.tab-nav {
+/* 底部Tab导航样式 */
+.bottom-tab-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     display: flex;
-    background: #f8f9fa;
-    border-bottom: 2px solid #e9ecef;
+    background: white;
+    border-top: 2px solid #e9ecef;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+    z-index: 100;
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
-.tab-btn {
+.bottom-tab-btn {
     flex: 1;
-    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
     border: none;
     background: transparent;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
     color: #6c757d;
     cursor: pointer;
     transition: all 0.3s ease;
+    gap: 4px;
 }
 
-.tab-btn.active {
-    color: #667eea;
-    background: white;
-    border-bottom: 3px solid #667eea;
+.bottom-tab-btn span:first-child {
+    font-size: 18px;
 }
 
-.tab-btn:hover {
+.bottom-tab-btn.active {
     color: #667eea;
     background: rgba(102, 126, 234, 0.1);
+}
+
+.bottom-tab-btn:hover {
+    color: #667eea;
+    background: rgba(102, 126, 234, 0.05);
 }
 
 /* Tab内容样式 */
@@ -292,20 +306,24 @@ footer {
 .position-item {
     background: #f8f9fa;
     border-radius: 15px;
-    padding: 20px;
+    padding: 15px 20px;
     border: 1px solid #e9ecef;
     transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .position-item:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.position-header {
+.position-info {
+    flex: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
 }
 
 .position-name {
@@ -314,16 +332,28 @@ footer {
     color: #333;
 }
 
+.position-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
 .position-amount {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     color: #667eea;
 }
 
+.position-details {
+    font-size: 12px;
+    color: #6c757d;
+}
+
 .position-actions {
     display: flex;
-    gap: 10px;
-    justify-content: center;
+    gap: 8px;
+    margin-left: 15px;
 }
 
 .action-btn {
@@ -572,22 +602,39 @@ footer {
 }
 
 .trade-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 10px;
-    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    font-size: 13px;
+    flex-wrap: wrap;
 }
 
 .trade-detail-item {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    min-width: 60px;
 }
 
 .trade-detail-label {
     color: #6c757d;
+    font-size: 11px;
 }
 
 .trade-detail-value {
     font-weight: 600;
     color: #333;
+    font-size: 14px;
+}
+
+/* 添加主界面底部间距 */
+.main-app .tab-content {
+    padding-bottom: 80px;
+}
+
+/* 详情页面也添加底部间距 */
+.detail-content {
+    padding: 20px 20px 80px 20px;
 }

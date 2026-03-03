@@ -26,7 +26,7 @@ class FinanceApp {
         });
 
         // Tab切换
-        document.querySelectorAll('.tab-btn').forEach(btn => {
+        document.querySelectorAll('.bottom-tab-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 this.switchTab(e.target.dataset.tab);
             });
@@ -100,7 +100,7 @@ class FinanceApp {
 
     switchTab(tabName) {
         // 切换tab按钮状态
-        document.querySelectorAll('.tab-btn').forEach(btn => {
+        document.querySelectorAll('.bottom-tab-btn').forEach(btn => {
             btn.classList.remove('active');
         });
         document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
@@ -245,18 +245,17 @@ class FinanceApp {
             const sharesDisplay = position.totalShares;
             
             return `
-                <div class="position-item">
-                    <div class="position-header">
-                        <div class="position-name">${position.name}</div>
-                        <div class="position-amount">¥${amountDisplay}</div>
-                    </div>
+                <div class="position-item" onclick="app.showDetail(${position.id})">
                     <div class="position-info">
-                        <small style="color: #6c757d;">持仓股数: ${sharesDisplay} | 平均成本: ¥${position.avgPrice.toFixed(2)}</small>
+                        <div class="position-name">${position.name}</div>
+                        <div class="position-stats">
+                            <div class="position-amount">¥${amountDisplay}</div>
+                            <div class="position-details">${sharesDisplay}股 • ¥${position.avgPrice.toFixed(2)}</div>
+                        </div>
                     </div>
                     <div class="position-actions">
-                        <button class="action-btn add-stock-btn" onclick="app.showTradeModal(${position.id}, 'buy')">+</button>
-                        <button class="action-btn remove-stock-btn" onclick="app.showTradeModal(${position.id}, 'sell')">-</button>
-                        <button class="action-btn detail-btn" onclick="app.showDetail(${position.id})">→</button>
+                        <button class="action-btn add-stock-btn" onclick="event.stopPropagation(); app.showTradeModal(${position.id}, 'buy')">+</button>
+                        <button class="action-btn remove-stock-btn" onclick="event.stopPropagation(); app.showTradeModal(${position.id}, 'sell')">-</button>
                     </div>
                 </div>
             `;

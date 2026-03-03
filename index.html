@@ -23,12 +23,6 @@
 
             <!-- 主界面 -->
             <div class="main-app" id="mainApp" style="display: none;">
-                <!-- Tab导航 -->
-                <div class="tab-nav">
-                    <button class="tab-btn active" data-tab="analysis">总持仓分析</button>
-                    <button class="tab-btn" data-tab="positions">持仓列表</button>
-                </div>
-
                 <!-- Tab内容区域 -->
                 <div class="tab-content">
                     <!-- 总持仓分析 -->
@@ -52,6 +46,18 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- 底部Tab导航 -->
+                <div class="bottom-tab-nav">
+                    <button class="bottom-tab-btn" data-tab="analysis">
+                        <span>📊</span>
+                        <span>总持仓分析</span>
+                    </button>
+                    <button class="bottom-tab-btn active" data-tab="positions">
+                        <span>📈</span>
+                        <span>持仓列表</span>
+                    </button>
                 </div>
             </div>
         </main>
